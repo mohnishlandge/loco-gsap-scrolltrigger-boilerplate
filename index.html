@@ -11,308 +11,567 @@
 
     <!-- STYLE -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Cormorant Garamond';
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+      :root {
+        --size: 150;
+        --unit: calc((var(--size) / 1366) * 1vmin);
+        --background: #e4e4e4;
       }
 
-      .container {
-        background: #dfdfdf;
+      * {
+        box-sizing: border-box;
       }
-      .container .hero {
-        display: grid;
-        grid-template-columns: 60% 40%;
-        height: 100vh;
-      }
-      .container .hero .copy {
-        display: grid;
-        align-content: center;
-        padding: 0 1rem;
+
+      body,
+      html {
+        width: 100%;
         height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--background);
       }
-      .container .hero .copy blockquote {
-        font-size: 6vmin;
-        font-weight: 300;
-      }
-      .container .hero .copy blockquote span {
-        font-style: italic;
-        font-weight: 400;
-      }
-      .container .hero .copy blockquote cite {
-        font-weight: 300;
-        font-style: italic;
-        font-size: 4.5vmin;
-        display: block;
-        padding: 8px 0;
-      }
-      .container .hero .image-wrapper {
-        height: 100vh;
-        width: 100%;
-      }
-      .container .hero .image-wrapper img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-      .container .section-0 {
-        margin-top: 20vh;
-        text-align: center;
-      }
-      .container .section-0 p {
-        font-size: 5vw;
-      }
-      .container .section-0 cite {
-        font-size: 3vw;
-      }
-      .container .section-1 {
-        height: 100vh;
-        display: grid;
-        place-content: center;
-        padding: 0 1rem;
-      }
-      .container .section-1 .image-mask {
-        width: 80vw;
-        height: 80vh;
-        background: url('https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Ftumblr_n92tblyC8d1s3sziio1_1280.jpg?alt=media&token=c5d75884-4bc3-46bb-815d-414d2ec68e4b');
-        background-size: cover;
-        background-position-x: 50%;
-        background-position-y: 90%;
-        background-size: 100%;
-      }
-      .container .section-1 .image-mask img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-      .container .section-1 blockquote {
-        font-size: 9vmin;
-        font-weight: 300;
-      }
-      .container .section-1 blockquote span {
-        font-style: italic;
-        font-weight: 400;
-      }
-      .container .section-1 blockquote cite {
-        font-weight: 300;
-        font-style: italic;
-        font-size: 7.5vmin;
-        display: block;
-        padding: 8px 0;
-      }
-      .container .section-2 {
-        height: calc(300vh + 32px + 16px);
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-columns: 40% 60%;
-      }
-      .container .section-2 blockquote {
-        font-size: 5vmin;
-        padding: 16px 16px 0 16px;
-      }
-      .container .section-2 blockquote cite {
-        display: block;
-      }
-      .container .section-2 .images-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 8px;
-        gap: 8px;
-        margin-top: 16px;
-      }
-      .container .section-2 .images-container img {
-        width: 100%;
-        max-height: 75vh;
-        height: 100%;
-        align-self: stretch;
-        object-fit: cover;
-      }
-      .container .section-3 {
-        height: 100vh;
-        display: grid;
-        grid-template-columns: 40% 60%;
-        position: relative;
-      }
-      .container .section-3 .image-wrapper {
-        height: 100%;
-        width: 100%;
-      }
-      .container .section-3 .image-wrapper img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-      .container .section-3 .copy {
-        font-size: 8vmin;
-        height: 100vh;
-        width: 100%;
-        display: grid;
-        align-content: center;
-      }
-      .container .section-3 .copy blockquote {
-        margin: 0 32px;
-      }
-      .container .section-3 .copyright {
+
+      .loader {
         position: absolute;
-        bottom: 5%;
+        top: 0%;
+        left: 0%;
+        width: 200%;
+        height: 100%;
+        z-index: 9999;
+      }
+      .loader:nth-child(1) {
+        background: #d5d5d5;
+      }
+
+      .loader {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 200%;
+        height: 100%;
+        z-index: 9999;
+      }
+      .loader:nth-child(2) {
+        background: #c5c5c5;
+      }
+
+      .loader {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 200%;
+        height: 100%;
+        z-index: 9999;
+      }
+      .loader:nth-child(3) {
+        background: #b6b6b6;
+      }
+
+      .loader {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 200%;
+        height: 100%;
+        z-index: 9999;
+      }
+      .loader:nth-child(4) {
+        background: #a7a7a7;
+      }
+
+      .collage-container {
+        position: relative;
+        min-width: calc(1366 * var(--unit));
+        height: calc(768 * var(--unit));
+      }
+      .collage-container #collage {
+        width: 100%;
+      }
+      .collage-container #collage .sanko {
+        opacity: 0.8;
+        position: absolute;
+        width: 100%;
+      }
+      .collage-container #collage #feather_1 {
+        position: absolute;
+        top: 19%;
+        left: 35%;
+        width: calc(100 * var(--unit));
+      }
+      .collage-container #collage #feather_2 {
+        position: absolute;
+        top: 62%;
+        left: 24.5%;
+        width: calc(208 * var(--unit));
+      }
+      .collage-container #collage #feather_3 {
+        position: absolute;
+        top: 22%;
+        left: 22.5%;
+        width: calc(208 * var(--unit));
+      }
+      .collage-container #collage #feather_4 {
+        position: absolute;
+        top: 63%;
+        left: 20.5%;
+        width: calc(208 * var(--unit));
+      }
+      .collage-container #collage #feather_5 {
+        position: absolute;
+        top: 16%;
+        left: 30.5%;
+        width: calc(150 * var(--unit));
+      }
+      .collage-container #collage #bird {
+        position: absolute;
+        top: 24.5%;
+        left: 38.4%;
+        width: calc(590 * var(--unit));
+      }
+      .collage-container #collage #left-branch {
+        position: absolute;
+        top: 41.5%;
+        left: 16.5%;
+        width: calc(350 * var(--unit));
+      }
+      .collage-container #collage #left-pine {
+        position: absolute;
+        top: 30.5%;
+        left: 11.5%;
+        width: calc(520 * var(--unit));
+      }
+      .collage-container #collage #center-branch {
+        position: absolute;
+        top: 26%;
+        left: 35.5%;
+        width: calc(140 * var(--unit));
+        transform-origin: 90% bottom;
+        transform: rotate(20deg);
+      }
+      .collage-container #collage #center-branch-big {
+        position: absolute;
+        top: 31%;
+        left: 41%;
+        width: calc(300 * var(--unit));
+      }
+      .collage-container #collage #red_mi {
+        position: absolute;
+        top: 57%;
+        left: 48%;
+        width: calc(160 * var(--unit));
+      }
+      .collage-container #collage #leaf_1 {
+        position: absolute;
+        top: 40.5%;
+        left: 31.5%;
+        width: calc(220 * var(--unit));
+      }
+      .collage-container #collage #leaf_2 {
+        position: absolute;
+        top: 62.5%;
+        left: 41.5%;
+        width: calc(160 * var(--unit));
+      }
+      .collage-container #collage #leaf_3 {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        width: calc(260 * var(--unit));
+      }
+      .collage-container #collage #leaf_4 {
+        position: absolute;
+        top: 56%;
+        left: 35%;
+        width: calc(180 * var(--unit));
+      }
+      .collage-container #collage #right-pine-big {
+        position: absolute;
+        top: 22.5%;
+        left: 49.5%;
+        width: calc(400 * var(--unit));
+      }
+      .collage-container #collage #right-pine-small {
+        position: absolute;
+        top: 54.5%;
+        left: 63.5%;
+        width: calc(210 * var(--unit));
+      }
+      .collage-container #collage .top-branch-container {
+        position: absolute;
+        width: calc(540 * var(--unit));
+        height: calc(200 * var(--unit));
+        top: 4.5%;
+        left: 34.5%;
+      }
+      .collage-container #collage .top-branch-container #top-branch-cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--background);
+      }
+      .collage-container #collage #top-branch-branch {
+        position: absolute;
+        width: calc(540 * var(--unit));
+      }
+      .collage-container #collage #top-branch-f1 {
+        position: absolute;
+        top: 17.5%;
+        left: 50.5%;
+        width: calc(60 * var(--unit));
+      }
+      .collage-container #collage #top-branch-f2 {
+        position: absolute;
+        top: 19.5%;
+        left: 58.5%;
+        width: calc(73 * var(--unit));
+      }
+      .collage-container #collage #top-branch-f3 {
+        position: absolute;
+        top: 22.5%;
+        left: 62.1%;
+        width: calc(73 * var(--unit));
+      }
+      .collage-container #collage #letter-container {
+        position: absolute;
+        top: 50%;
         left: 50%;
-        font-size: 4vmin !important;
+        width: 200%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+      }
+      .collage-container #collage #letter-container #letter {
+        width: 100%;
+        color: #fffbf2;
+        font-weight: bold;
+        font-size: calc(270 * var(--unit));
+        font-family: Didot, Didot LT STD, Hoefler Text, Garamond,
+          Times New Roman, serif;
+        filter: drop-shadow(
+          calc(5 * var(--unit)) calc(5 * var(--unit)) calc(5 * var(--unit))
+            rgba(0, 0, 0, 0.2)
+        );
+      }
+      .collage-container #collage #hoverme {
+        position: absolute;
+        top: 45%;
+        left: 55%;
+        font-style: italic;
+        font-size: calc(13 * var(--unit));
+        font-family: 'Playfair Display', serif;
+        color: #505050;
+        animation: hoverme 1.3s infinite alternate;
+      }
+      .collage-container #collage #hoverme::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -100%;
+        width: calc(40 * var(--unit));
+        height: calc(1 * var(--unit));
+        background: #505050;
+      }
+      .collage-container #collage #hoverBox {
+        display: block;
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        width: calc(120 * var(--unit));
+        height: calc(280 * var(--unit));
+        z-index: 999;
+      }
+
+      @keyframes hoverme {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <div data-scroll-container class="container">
-      <div class="hero">
-        <div data-scroll data-scroll-speed="3" class="copy">
-          <blockquote>
-            “It’s one thing to make a <span>picture</span> of what a person
-            looks like, it’s another thing to make a <span>potrait</span> of who
-            they are.”
-            <cite> — Paul Caponigro </cite>
-          </blockquote>
+    <div class="loader"></div>
+    <div class="loader"></div>
+    <div class="loader"></div>
+    <div class="loader"></div>
+    <div class="collage-container">
+      <div id="collage">
+        <div id="hoverme">Hover me</div>
+        <!-- top -->
+        <img
+          id="top-branch-f1"
+          src="https://i.postimg.cc/y8F2yG3P/top-branch-f1.png"
+          alt=""
+        />
+        <div id="top-branch" class="top-branch-container">
+          <img
+            id="top-branch-branch"
+            src="https://i.postimg.cc/xTNwc80B/top-branch-branch.png"
+            alt=""
+          />
+          <div id="top-branch-cover"></div>
         </div>
-        <div class="image-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Fmonochrome-photo-of-woman-3410386.jpg?alt=media&token=112f9717-ef7e-46e1-8952-b3e346f8f008"
-            alt=""
-          />
+        <img
+          id="top-branch-f2"
+          src="https://i.postimg.cc/K8XdLbjj/top-branch-f2.png"
+          alt=""
+        />
+        <img
+          id="top-branch-f3"
+          src="https://i.postimg.cc/MG54hjDf/top-branch-f3.png"
+          alt=""
+        />
+
+        <!-- feather -->
+        <img
+          id="feather_2"
+          src="https://i.postimg.cc/T1svBWTJ/feather-2.png"
+          alt=""
+        />
+        <img
+          id="feather_3"
+          src="https://i.postimg.cc/qqqdmGH7/feather-3.png"
+          alt=""
+        />
+        <img
+          id="feather_4"
+          src="https://i.postimg.cc/4dBgbSMM/feather-4.png"
+          alt=""
+        />
+        <img
+          id="feather_5"
+          src="https://i.postimg.cc/sDBr7KJ6/feather-5.png"
+          alt=""
+        />
+        <img
+          id="feather_1"
+          src="https://i.postimg.cc/3rfhkz20/feather-1.png"
+          alt=""
+        />
+
+        <!-- bird -->
+        <img id="bird" src="https://i.postimg.cc/brsK0N1D/bird.png" alt="" />
+
+        <!-- left side -->
+        <img
+          id="left-branch"
+          src="https://i.postimg.cc/QxRrb54X/left-branch.png"
+          alt=""
+        />
+        <img
+          id="left-pine"
+          src="https://i.postimg.cc/W4VcRVcC/left-pine.png"
+          alt=""
+        />
+
+        <!-- middle -->
+        <img
+          id="red_mi"
+          src="https://i.postimg.cc/C1v3ffnp/red-mi.png"
+          alt=""
+        />
+
+        <!-- middle leaves -->
+        <img
+          id="leaf_1"
+          src="https://i.postimg.cc/zv64xZkd/leaf-1.png"
+          alt=""
+        />
+        <img
+          id="leaf_2"
+          src="https://i.postimg.cc/jjh0t1s5/leaf-2.png"
+          alt=""
+        />
+        <img
+          id="leaf_3"
+          src="https://i.postimg.cc/440CfVTz/leaf-3.png"
+          alt=""
+        />
+        <img
+          id="leaf_4"
+          src="https://i.postimg.cc/rmpbcFnn/leaf-4.png"
+          alt=""
+        />
+        <!-- middle branch  -->
+        <img
+          id="center-branch"
+          src="https://i.postimg.cc/G2h02j2j/center-branch.png"
+          alt=""
+        />
+        <img
+          id="center-branch-big"
+          src="https://i.postimg.cc/GpdV7jk1/center-branch-big.png"
+          alt=""
+        />
+
+        <!-- right side -->
+        <img
+          id="right-pine-big"
+          src="https://i.postimg.cc/vBSKmFCQ/right-pine-big.png"
+          alt=""
+        />
+        <img
+          id="right-pine-small"
+          src="https://i.postimg.cc/0yD1HQF7/right-pine-small.png"
+          alt=""
+        />
+
+        <!-- letter (you can change the text but short one)-->
+        <div id="letter-container">
+          <div id="letter">Believe</div>
         </div>
-      </div>
 
-      <div class="section-0" data-scroll data-scroll-speed="2">
-        <p
-          data-scroll
-          data-scroll-direction="horizontal"
-          data-scroll-speed="-2"
-        >
-          Travelling leaves you speechless
-        </p>
-        <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
-          Then it turns you to a storyteller
-        </p>
-
-        <cite>— Ibn Battuta</cite>
-      </div>
-
-      <div class="section-1">
-        <div class="image-mask"></div>
-      </div>
-
-      <div class="section-2">
-        <div id="pinSection" class="pinned-quote">
-          <blockquote
-            data-scroll
-            data-scroll-sticky
-            data-scroll-target="#pinSection"
-          >
-            “To me, photography is an art of observation. It’s about finding
-            something interesting in an ordinary place… I’ve found it has little
-            to do with the things you see and everything to do with the way you
-            see them.”
-
-            <cite> — Elliott Erwitt </cite>
-          </blockquote>
-        </div>
-
-        <div class="images-container">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2F666238d6f903c8899fa76789ed59912d.jpg?alt=media&token=fed407c6-a469-43cd-af23-5d7bb36c0f0e"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Fbca413679414c189fdff16e15edd7726.jpg?alt=media&token=23dfcb96-b5b0-47ac-8105-e2c9a08c437b"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2F24cf1a08cbaabf899d9d9872e20452b6.jpg?alt=media&token=7d44f884-e4dc-4775-b15d-001b9868de38"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2F37ff280cdb9a9ff5a8aebb482a7c1b73.jpg?alt=media&token=611f6188-574c-4456-bdd1-c20b2e024b0a"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2F81c20e1c1c9e380395bff6ff651fc2e7.jpg?alt=media&token=d0fa44b4-b518-4754-ae1d-929a08972c25"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Fb4a0ce2c6d0e9ffd4792561e122bfb1e.jpg?alt=media&token=d32ec2b6-0902-4cb5-ae28-d22c87858407"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Fd137584c758fd75b3191220df2934ce9.jpg?alt=media&token=34fcda56-27ea-43f5-a8c0-256783a053f8"
-            alt=""
-          />
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Fmonochrome-photo-of-woman-covering-her-eye-2928525.jpg?alt=media&token=34786a3f-935d-4465-9d86-f837967e07cb"
-            alt=""
-          />
-        </div>
-      </div>
-
-      <div class="section-3">
-        <div class="image-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2F0984c01ecccd4282d73a74962ea59889.jpg?alt=media&token=4b859d79-7055-4584-9c0a-b44a2cdd4e66"
-            alt=""
-          />
-        </div>
-        <div class="copy">
-          <blockquote data-scroll-speed="3" data-scroll>
-            If a picture is worth a thousand words, words must be priceless
-          </blockquote>
-        </div>
-        <p
-          class="copyright"
-          data-scroll-position="bottom"
-          data-scroll-speed="2"
-          data-scroll
-        >
-          &copy; Layout Explorations, ebinabo, 2020
-        </p>
+        <div id="hoverBox"></div>
       </div>
     </div>
     <script>
-      const scroller = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
+      //follow me on twitter :)
+      //@shunyadezain
+
+      gsap.registerPlugin(GSDevTools, SplitText)
+
+      const hoverBox = document.getElementById('hoverBox')
+      const hoverMe = document.getElementById('hoverme')
+
+      //set defalt easing
+      gsap.defaults({ ease: 'back.out(1.4)' })
+
+      //set transformOrigin & scale 0 & rotation
+      setScaleZero = (name, x, y, rotate) => {
+        gsap.set(`${name}`, {
+          transformOrigin: `${x}% ${y}%`,
+          scale: 0,
+          rotate: rotate,
+        })
+      }
+
+      //right pine
+      setScaleZero('#right-pine-big', 0, 90, 30)
+      gsap.set('#right-pine-small', {
+        transformOrigin: '0% 40%',
+        scale: 0,
+        rotate: 40,
+        x: -50,
+        y: 10,
       })
 
-      gsap.registerPlugin(ScrollTrigger)
+      //center branch
+      setScaleZero('#center-branch-big', 20, 95, -50)
 
-      scroller.on('scroll', ScrollTrigger.update)
+      //feathers
+      setScaleZero('#feather_2', 120, 0, -60) //btm right
+      setScaleZero('#feather_4', 140, 50, -70) //btm left
+      setScaleZero('#feather_3', 120, 140, -100) //top left
+      setScaleZero('#feather_5', 80, 120, -110) //top middle
+      setScaleZero('#feather_1', 70, 100, -100) //top right
 
-      ScrollTrigger.scrollerProxy('.container', {
-        scrollTop(value) {
-          return arguments.length
-            ? scroller.scrollTo(value, 0, 0)
-            : scroller.scroll.instance.scroll.y
-        },
-        getBoundingClientRect() {
-          return {
-            left: 0,
-            top: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          }
-        },
+      //bird
+      setScaleZero('#bird', 20, 100, -100)
+
+      //left branches
+      setScaleZero('#left-branch', 100, 90, -100)
+      setScaleZero('#left-pine', 70, 120, -100)
+
+      //red berries
+      setScaleZero('#red_mi', 0, 50, -150)
+
+      //leaves
+      setScaleZero('#leaf_1', 90, 80, -60)
+      setScaleZero('#leaf_2', 30, 10, -50)
+      setScaleZero('#leaf_3', 20, 80, -40)
+      setScaleZero('#leaf_4', 70, 10, -50)
+
+      //top branch
+      setScaleZero('#top-branch-f1', 100, 60, 30)
+      setScaleZero('#top-branch-f2', 50, 70, 30)
+      setScaleZero('#top-branch-f3', 70, 25, -30)
+
+      //text split
+      const mySplitText = new SplitText('#letter', { type: 'chars' })
+
+      //set text position
+      gsap.set(mySplitText.chars, {
+        transformOrigin: 'center center',
+        yPercent: 100,
       })
 
-      ScrollTrigger.create({
-        trigger: '.image-mask',
-        scroller: '.container',
-        start: 'top+=30% 50%',
-        end: 'bottom-=40% 50%',
-        animation: gsap.to('.image-mask', { backgroundSize: '120%' }),
-        scrub: 2,
-        // markers: true
+      //main animation timeline
+      const AnimationTL = gsap.timeline({
+        paused: true,
       })
 
-      ScrollTrigger.addEventListener('refresh', () => scroller.update())
+      AnimationTL.to('#center-branch', { rotate: 15, duration: 1.7 })
+        .to('#leaf_1', { scale: 1, rotate: 0, duration: 1.1 }, 0.1)
+        .to('#leaf_2', { scale: 1, rotate: 0, duration: 1.3 }, 0.2)
+        .to('#leaf_3', { scale: 1, rotate: 0, duration: 1.3 }, 0.1)
+        .to('#leaf_4', { scale: 1, rotate: 0, duration: 1.2 }, 0.1)
+        .to('#feather_2', { scale: 1, rotate: 0, duration: 1.2 }, 0.2)
+        .to('#feather_4', { scale: 1, rotate: 0, duration: 1.4 }, 0.4)
+        .to('#feather_3', { scale: 1, rotate: 0, duration: 1.2 }, 0.3)
+        .to('#feather_5', { scale: 1, rotate: 0, duration: 1.2 }, 0.4)
+        .to('#feather_1', { scale: 1, rotate: 0, duration: 1.3 }, 0.4)
+        .to('#red_mi', { scale: 1, rotate: 0, duration: 1.9 }, 0.6)
+        .to('#left-branch', { scale: 1, rotate: 0, duration: 1.5 }, 0.5)
+        .to('#left-pine', { scale: 1, rotate: 0, duration: 1.3 }, 0.4)
+        .to('#center-branch-big', { scale: 1, rotate: 0, duration: 1.3 }, 0.4)
+        .to('#right-pine-big', { scale: 1, rotate: 0, duration: 1.3 }, 0.5)
+        .to(
+          '#right-pine-small',
+          { scale: 1, rotate: 0, x: 0, y: 0, duration: 1.1 },
+          0.85
+        )
+        .to('#bird', { scale: 1, rotate: 0, duration: 1.6 }, 0.5)
+        .to(
+          '#top-branch-cover',
+          { scaleX: 0, transformOrigin: 'left', duration: 2 },
+          0.5
+        )
+        .to('#top-branch-f3', { scale: 1, rotate: 0, duration: 1.5 }, 0.9)
+        .to('#top-branch-f2', { scale: 1, rotate: 0, duration: 1.7 }, 1.2)
+        .to('#top-branch-f1', { scale: 1, rotate: 0, duration: 1.7 }, 1.4)
+        .to(
+          mySplitText.chars,
+          {
+            duration: 1.1,
+            yPercent: 0,
+            stagger: {
+              each: 0.1,
+            },
+          },
+          0.5
+        )
 
-      ScrollTrigger.refresh()
+      //hover actions
+      hoverBox.addEventListener('mouseover', () => {
+        AnimationTL.play()
+        hoverMe.style.display = 'none'
+      })
+
+      hoverBox.addEventListener('mouseleave', () => {
+        AnimationTL.reverse()
+        hoverMe.style.display = 'block'
+      })
+
+      //loader
+      window.addEventListener('load', () => {
+        gsap.to('.loader', {
+          transformOrigin: 'left bottom',
+          rotate: -100,
+          duration: 2,
+          ease: 'sine.in',
+          stagger: {
+            each: 0.3,
+            from: 'end',
+          },
+        })
+      })
+
+      //GSAP DevTool
+      // GSDevTools.create({animation:AnimationTL, globalSync:false});
     </script>
   </body>
 </html>
